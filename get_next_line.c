@@ -6,7 +6,7 @@
 /*   By: msimoes <msimoes@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 14:01:48 by msimoes           #+#    #+#             */
-/*   Updated: 2025/05/07 11:32:26 by msimoes          ###   ########.fr       */
+/*   Updated: 2025/05/07 16:46:18 by msimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,30 @@
 
 char *get_next_line(int fd)
 {
-	static char buffer[BUFFER_SIZE];
-	char * line;
-
-	fd = open("file.txt", O_RDONLY | O_CREAT);
+	static char buffer[BUFFER_SIZE]; 
+	char *line;
 	
-	printf("ABCD %d", fd);
-	// while (read(fd, buffer, BUFFER_SIZE))
-	// {
-	// 	line = ft_strjoin(line, buffer[BUFFER_SIZE]);
-	// }
-	sleep(1000);
+	line = NULL;
+
+	while (*buffer || read(fd, buffer, BUFFER_SIZE) > 0)
+	{
+		line = ft_strjoin(line, buffer);
+		if(reset_buffer(buffer))
+			break ;
+	}
+	return(line);
+}
+
+int main()
+{
+	char *gnl_fd;
+	int fd = open("test.txt", O_RDONLY | O_CREAT);
+	
+	while ((gnl_fd = get_next_line(fd)) != NULL)
+	{
+		printf("%s", gnl_fd);
+		free(gnl_fd);	
+	}
+	printf("\n");
+	close(fd);
 }
