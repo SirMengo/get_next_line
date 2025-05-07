@@ -1,0 +1,7 @@
+HelloWorld
+GetNextOOO00000
+Line
+
+
+
+BUFFER_SIZE 20
