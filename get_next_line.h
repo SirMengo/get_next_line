@@ -6,7 +6,7 @@
 /*   By: msimoes <msimoes@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 14:00:19 by msimoes           #+#    #+#             */
-/*   Updated: 2025/05/07 16:20:16 by msimoes          ###   ########.fr       */
+/*   Updated: 2025/05/08 09:11:18 by msimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,8 @@
 #  define BUFFER_SIZE 50
 # endif
 
-
 char	*ft_strjoin(char const *s1, char const *s2);
-int	reset_buffer(char *buffer);
-char *get_next_line(int fd);
+int		reset_buffer(char *buffer);
+char	*get_next_line(int fd);
 
 #endif

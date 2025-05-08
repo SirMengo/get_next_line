@@ -6,28 +6,30 @@
 /*   By: msimoes <msimoes@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 14:01:48 by msimoes           #+#    #+#             */
-/*   Updated: 2025/05/07 16:46:18 by msimoes          ###   ########.fr       */
+/*   Updated: 2025/05/08 09:12:26 by msimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char *get_next_line(int fd)
+char	*get_next_line(int fd)
 {
-	static char buffer[BUFFER_SIZE]; 
-	char *line;
-	
-	line = NULL;
+	static char	buffer[BUFFER_SIZE];
+	char		*line;
 
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (NULL);
+	line = NULL;
 	while (*buffer || read(fd, buffer, BUFFER_SIZE) > 0)
 	{
 		line = ft_strjoin(line, buffer);
-		if(reset_buffer(buffer))
+		if (reset_buffer(buffer))
 			break ;
 	}
-	return(line);
+	return (line);
 }
 
+/*
 int main()
 {
 	char *gnl_fd;
@@ -41,3 +43,4 @@ int main()
 	printf("\n");
 	close(fd);
 }
+*/

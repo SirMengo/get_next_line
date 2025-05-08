@@ -6,7 +6,7 @@
 /*   By: msimoes <msimoes@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 14:13:57 by msimoes           #+#    #+#             */
-/*   Updated: 2025/05/07 16:57:59 by msimoes          ###   ########.fr       */
+/*   Updated: 2025/05/08 09:15:32 by msimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	ft_strlen(char const *str)
 	i = 0;
 	if (!str)
 		return (0);
-	while(str[i] && str[i] != '\n')
+	while (str[i] && str[i] != '\n')
 		i++;
 	if (str[i] == '\n')
 		i++;
@@ -55,16 +55,16 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (res);
 }
 
-int reset_buffer(char *buffer)
+int	reset_buffer(char *buffer)
 {
-	int i;
-	int j;
-	int flag;
-	
+	int	i;
+	int	j;
+	int	flag;
+
 	i = 0;
 	j = 0;
 	flag = 0;
-	while(buffer[i])
+	while (buffer[i])
 	{
 		if (flag == 1)
 			buffer[j++] = buffer[i];
